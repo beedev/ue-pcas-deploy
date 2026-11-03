@@ -33,6 +33,37 @@ From that one address the script works out every setting the stack needs, and th
 - **Another address:** run it with the new address. The sign-in service reads its addresses only on a fresh start, so this resets the demo data.
 - **A port is taken:** the script says which one. Choose another, for example `PCAS_PORT=9080 bash install.sh http://localhost:9080`.
 
+## Settings: the .env file
+
+All settings live in one file, `~/ue-pcas/.env`. You usually change nothing: the defaults run the demo as it is.
+
+**Written by the script. Don't edit these by hand.** Each run of `install.sh` writes these lines from the address you give it, and overwrites what is there:
+
+| Setting | On your own computer | On a server at `https://idea.example.com/ue-pcas` |
+|---|---|---|
+| `PCAS_URL` | `http://localhost:8080` | `https://idea.example.com/ue-pcas` |
+| `PCAS_ORIGIN` | `http://localhost:8080` | `https://idea.example.com` |
+| `PCAS_BASE_PATH` | empty | `/ue-pcas` |
+| `KEYCLOAK_URL` | `http://localhost:8180` | `https://idea.example.com/ue-pcas-keycloak` |
+| `KEYCLOAK_PATH` | empty | `/ue-pcas-keycloak` |
+| `PCAS_PORT`, `KEYCLOAK_PORT`, `API_PORT`, `MOCKS_PORT`, `DB_PORT` | `8080`, `8180`, `8000`, `8090`, `5433` | the same |
+
+To change the address or a port, run the script again rather than editing the file, for example `bash install.sh https://new.example.com/pcas` or `PCAS_PORT=9080 bash install.sh http://localhost:9080`. The five address settings have to agree with each other, and the script keeps them in step.
+
+**Yours to add.** Add these lines yourself. The script keeps every line it does not write.
+
+| To do this | Add to `.env` | When it takes effect |
+|---|---|---|
+| Use a live AI model instead of the recorded answers | `AI__PROVIDER=OpenAI`<br>`OPENAI_API_KEY=<your key>`<br>`OPENAI_MODEL=gpt-4.1` | After `docker compose up -d` |
+| Name the AI provider on the AI governance page | `AI__CONTROLS__PROVIDER=OpenAI`<br>`AI__CONTROLS__DATAHANDLING=The text of a notice is sent to OpenAI to be read.` | After `docker compose up -d` |
+| Change the sign-in admin console's password (do this on a server, where the console is reachable at `<sign-in address>/admin`) | `KEYCLOAK_ADMIN_PASSWORD=<a password of your own>` | Only on a fresh start: `docker compose down -v`, then `bash install.sh <same address>`. This resets the demo data |
+
+Without the AI lines, the demo answers every AI call from recorded replies. That costs nothing and gives the same results every time, which is how HTC verifies it. With a live model, each call costs money, and the monthly caps on the AI governance page limit the spend. Keep the key only in `.env`. It never leaves that file, and the app never shows it.
+
+**Applying a change.** In `~/ue-pcas`, run `docker compose up -d`. It restarts only the parts whose settings changed and keeps the demo data.
+
+`.env.example` in this repository lists every setting the stack reads, with a note on each. Leave the rest alone: the database and client passwords there are the demo's test values, and the sign-in service is set up to match them.
+
 ## Sign in
 
 Every demo user has the password `Pcas!2026`.
