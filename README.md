@@ -13,7 +13,7 @@ curl -fsSLo install.sh https://raw.githubusercontent.com/beedev/ue-pcas-deploy/m
 bash install.sh
 ```
 
-It installs into `~/ue-pcas`, starts the demo and opens **http://localhost:8080**. Use exactly that address, not `127.0.0.1`: the sign-in checks it. The first run downloads about 1.5 GB and takes a few minutes.
+It installs into `~/ue-pcas`, starts the demo and opens **http://localhost:8080**. A new installation resets itself once when it first starts, so its demo data is complete; there is no need to press Reset before the first walk. Use exactly that address, not `127.0.0.1`: the sign-in checks it. The first run downloads about 1.5 GB and takes a few minutes.
 
 ## On a server
 
@@ -66,7 +66,7 @@ Without the AI lines, the demo answers every AI call from recorded replies. That
 
 ## Sign in
 
-Every demo user has the password `Pcas!2026`.
+Every demo user has the password `Pcas!2026`. These are all the users in the demo's sign-in setup.
 
 | User | Role in the story |
 |---|---|
@@ -74,8 +74,14 @@ Every demo user has the password `Pcas!2026`.
 | `r.alvarez` | Policy service representative |
 | `j.ferro` | Referral underwriter |
 | `m.delacroix` | Finance analyst |
-| `r.chen` | Claims adjuster |
+| `r.chen` | Claims adjuster, owner of the new matter |
+| `d.park` | Claims adjuster without access to the restricted matter (step 9 shows the refusal) |
+| `l.moreau` | Claims adjuster, owner of the claim the back-dated endorsement flags (step 6) |
+| `s.iyer` | Claims adjuster |
 | `j.kim` | Claims supervisor |
+| `h.lindqvist` | Claims manager (a higher authority level) |
+| `v.okafor` | VP Resolutions (the highest claims authority level) |
+| `u.brandt` | Underwriting manager |
 | `k.osei` | Configuration administrator |
 | `n.adeyemi` | Second configuration administrator |
 | `t.okonkwo` | System administrator |
