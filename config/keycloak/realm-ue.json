@@ -1,0 +1,1060 @@
+{
+  "realm": "ue",
+  "displayName": "United Educators PCAS",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": false,
+  "duplicateEmailsAllowed": false,
+  "accessTokenLifespan": 900,
+  "ssoSessionIdleTimeout": 36000,
+  "ssoSessionMaxLifespan": 36000,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "roles": {
+    "realm": [
+      {
+        "name": "policy-service-rep",
+        "description": "Policy Service Representative"
+      },
+      {
+        "name": "referral-underwriter",
+        "description": "Referral Underwriter"
+      },
+      {
+        "name": "claims-adjuster",
+        "description": "Claims Adjuster"
+      },
+      {
+        "name": "claims-supervisor",
+        "description": "Claims Supervisor"
+      },
+      {
+        "name": "finance-analyst",
+        "description": "Finance Analyst"
+      },
+      {
+        "name": "config-admin",
+        "description": "Configuration Administrator"
+      },
+      {
+        "name": "system-admin",
+        "description": "System Administrator"
+      },
+      {
+        "name": "auditor",
+        "description": "Read-Only Auditor"
+      },
+      {
+        "name": "claims-manager",
+        "description": "Claims Manager"
+      },
+      {
+        "name": "vp-resolutions",
+        "description": "VP Resolutions"
+      },
+      {
+        "name": "underwriting-manager",
+        "description": "Underwriting Manager"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "service-account-svc-pcas-api",
+      "enabled": true,
+      "serviceAccountClientId": "svc-pcas-api",
+      "clientRoles": {
+        "realm-management": ["view-users"]
+      }
+    },
+    {
+      "username": "r.alvarez",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Rosa",
+      "lastName": "Alvarez",
+      "email": "r.alvarez@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "policy-service-rep"
+      ]
+    },
+    {
+      "username": "j.ferro",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "James",
+      "lastName": "Ferro",
+      "email": "j.ferro@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "referral-underwriter"
+      ]
+    },
+    {
+      "username": "r.chen",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Ryan",
+      "lastName": "Chen",
+      "email": "r.chen@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-adjuster"
+      ]
+    },
+    {
+      "username": "d.park",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Dana",
+      "lastName": "Park",
+      "email": "d.park@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-adjuster"
+      ]
+    },
+    {
+      "username": "l.moreau",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Luc",
+      "lastName": "Moreau",
+      "email": "l.moreau@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-adjuster"
+      ]
+    },
+    {
+      "username": "s.iyer",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Sita",
+      "lastName": "Iyer",
+      "email": "s.iyer@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-adjuster"
+      ]
+    },
+    {
+      "username": "j.kim",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Jae",
+      "lastName": "Kim",
+      "email": "j.kim@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-supervisor"
+      ]
+    },
+    {
+      "username": "m.delacroix",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Marie",
+      "lastName": "Delacroix",
+      "email": "m.delacroix@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "finance-analyst"
+      ]
+    },
+    {
+      "username": "k.osei",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Kwame",
+      "lastName": "Osei",
+      "email": "k.osei@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "config-admin"
+      ]
+    },
+    {
+      "username": "n.adeyemi",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Nia",
+      "lastName": "Adeyemi",
+      "email": "n.adeyemi@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "config-admin"
+      ]
+    },
+    {
+      "username": "t.okonkwo",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Tobi",
+      "lastName": "Okonkwo",
+      "email": "t.okonkwo@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "system-admin"
+      ]
+    },
+    {
+      "username": "e.kennedy",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Erin",
+      "lastName": "Kennedy",
+      "email": "e.kennedy@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "auditor"
+      ]
+    },
+    {
+      "username": "h.lindqvist",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Hanna",
+      "lastName": "Lindqvist",
+      "email": "h.lindqvist@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "claims-manager"
+      ]
+    },
+    {
+      "username": "v.okafor",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Victor",
+      "lastName": "Okafor",
+      "email": "v.okafor@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "vp-resolutions"
+      ]
+    },
+    {
+      "username": "u.brandt",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Ulla",
+      "lastName": "Brandt",
+      "email": "u.brandt@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "underwriting-manager"
+      ]
+    },
+    {
+      "username": "demo.all",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Demo",
+      "lastName": "All",
+      "email": "demo.all@ue-demo.example",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Pcas!2026",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "policy-service-rep",
+        "referral-underwriter",
+        "claims-adjuster",
+        "claims-supervisor",
+        "finance-analyst",
+        "config-admin",
+        "system-admin",
+        "auditor",
+        "claims-manager",
+        "vp-resolutions",
+        "underwriting-manager"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "pcas-bff",
+      "name": "PCAS backend-for-frontend (token handler, D-151)",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "pcas-bff-local-secret",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "${PCAS_URL:http://localhost:8080}/bff/auth/login*##http://localhost:5173/bff/auth/login*"
+      },
+      "redirectUris": [
+        "${PCAS_URL:http://localhost:8080}/bff/auth/callback",
+        "http://localhost:5173/bff/auth/callback"
+      ],
+      "webOrigins": []
+    },
+    {
+      "clientId": "pcas-api",
+      "name": "PCAS API (audience only)",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "bearerOnly": true
+    },
+    {
+      "clientId": "e2e-harness",
+      "name": "End-to-end test harness (non-production only)",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": true,
+      "attributes": {}
+    },
+    {
+      "clientId": "uw-workbench",
+      "name": "Underwriting Workbench simulator",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "secret": "uw-workbench-local-secret"
+    },
+    {
+      "clientId": "svc-pcas-api",
+      "name": "pcas-api calling other services",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "secret": "svc-pcas-api-local-secret"
+    },
+    {
+      "clientId": "svc-integration-hub",
+      "name": "Integration hub calling pcas-api",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "secret": "svc-integration-hub-local-secret"
+    },
+    {
+      "clientId": "svc-workflow",
+      "name": "Workflow calling pcas-api",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "secret": "svc-workflow-local-secret"
+    },
+    {
+      "clientId": "svc-rules",
+      "name": "Rules service",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "protocolMappers": [
+        {
+          "name": "realm roles (flat)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "multivalued": "true",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "userinfo.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "audience pcas-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "pcas-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "preferred_username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "full name",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-full-name-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "email",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "email",
+            "claim.name": "email",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "fullScopeAllowed": true,
+      "attributes": {},
+      "secret": "svc-rules-local-secret"
+    }
+  ]
+}

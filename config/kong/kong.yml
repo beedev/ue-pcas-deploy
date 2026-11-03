@@ -1,0 +1,152 @@
+# Kong 3.9, DB-less: the single-origin edge of the local stack (D-150). Browsers and the test harness reach web and pcas-api only through here.
+# Port 8000 and port 8080 carry the same routes, so the provided end-to-end defaults (web 8080, API 8000) stay valid.
+# /bff/ goes to the token-handler BFF (D-151).
+# Not routed on purpose: /internal/v1/* (SPEC: "not routed by the gateway") and /openapi/*.
+_format_version: "3.0"
+
+# Routing note: a route that lists methods outranks one that does not. Every route here lists them, so the longer path wins and /api/pcas/ is never swallowed by the SPA route "/".
+services:
+  - name: pcas-api
+    url: http://pcas-api-internal:8080
+    # Kong's defaults (60 s, 5 retries) would cut off a long scenario call and could replay a reset or a payment POST, so retries are off.
+    connect_timeout: 5000
+    read_timeout: 300000
+    write_timeout: 300000
+    retries: 0
+    routes:
+      - name: pcas-api
+        paths:
+          - /api/pcas/
+        methods:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
+          - HEAD
+        strip_path: false
+        preserve_host: true
+      - name: pcas-inbound
+        paths:
+          - /api/integration/v1/inbound/
+        methods:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
+          - HEAD
+        strip_path: false
+        preserve_host: true
+      - name: pcas-health
+        paths:
+          - /health/
+        methods:
+          - GET
+          - HEAD
+        strip_path: false
+        preserve_host: true
+    plugins:
+      # A service-scoped instance replaces the global one, so the four headers are repeated; the API also gets a CSP that allows nothing.
+      - name: response-transformer
+        config:
+          add:
+            headers:
+              - "X-Content-Type-Options:nosniff"
+              - "X-Frame-Options:DENY"
+              - "Referrer-Policy:strict-origin-when-cross-origin"
+              - "Permissions-Policy:camera=(), microphone=(), geolocation=()"
+              - "Content-Security-Policy:default-src 'none'; frame-ancestors 'none'"
+
+  - name: bff
+    # The token-handler BFF (D-151): sign-in, the session cookie and the allow-listed pass-through to pcas-api.
+    url: http://pcas-bff:4201
+    # Same reasons as pcas-api: a scenario call can run long, and a retry could replay a payment POST.
+    connect_timeout: 5000
+    read_timeout: 300000
+    write_timeout: 300000
+    retries: 0
+    routes:
+      - name: bff
+        paths:
+          - /bff/
+        methods:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          - HEAD
+        strip_path: false
+        # The BFF picks the redirect address of the sign-in from the Host header, so it must arrive unchanged.
+        preserve_host: true
+    plugins:
+      # No plugin makes an ID here: the BFF passes a caller's ID on, and pcas-api makes its own when there is none.
+      - name: response-transformer
+        config:
+          add:
+            headers:
+              - "X-Content-Type-Options:nosniff"
+              - "X-Frame-Options:DENY"
+              - "Referrer-Policy:strict-origin-when-cross-origin"
+              - "Permissions-Policy:camera=(), microphone=(), geolocation=()"
+              - "Content-Security-Policy:default-src 'none'; frame-ancestors 'none'"
+
+  - name: workbench
+    # The Underwriting Workbench stand-in and its /sim calls, through the same address as PCAS, so a server needs one public address and
+    # the Workbench link works wherever PCAS runs (D-231). Port 8090 still reaches mock-systems directly for the test harness.
+    url: http://mock-systems:8080
+    routes:
+      - name: workbench
+        paths:
+          - /workbench
+          - /sim/
+        methods:
+          - GET
+          - POST
+          - HEAD
+        strip_path: false
+
+  - name: web
+    url: http://pcas-web:80
+    routes:
+      - name: web
+        paths:
+          - /
+        methods:
+          - GET
+          - HEAD
+        strip_path: false
+        preserve_host: true
+    plugins:
+      # Only the web route makes the ID here. On API routes pcas-api keeps a caller's ID or makes its own "cor-" + UUIDv7 (SPEC, Conventions).
+      - name: correlation-id
+        config:
+          header_name: X-Correlation-Id
+          generator: uuid
+          echo_downstream: true
+
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 6000
+      policy: local
+      limit_by: ip
+      fault_tolerant: true
+      hide_client_headers: false
+  - name: request-size-limiting
+    config:
+      allowed_payload_size: 1
+      size_unit: megabytes
+      require_content_length: false
+  # The SPA's own CSP stays with nginx (web/nginx.conf). "add" never overwrites, so nginx's CSP is not touched.
+  - name: response-transformer
+    config:
+      add:
+        headers:
+          - "X-Content-Type-Options:nosniff"
+          - "X-Frame-Options:DENY"
+          - "Referrer-Policy:strict-origin-when-cross-origin"
+          - "Permissions-Policy:camera=(), microphone=(), geolocation=()"
