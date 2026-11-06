@@ -15,7 +15,7 @@
 #
 # Settings (all optional, as environment variables):
 #   PCAS_HOME=~/ue-pcas      where it installs
-#   PCAS_PORT=8080  KEYCLOAK_PORT=8180  API_PORT=8000  MOCKS_PORT=8090  DB_PORT=5433
+#   PCAS_PORT=8080  KEYCLOAK_PORT=8180  API_PORT=8000  MOCKS_PORT=8090  DB_PORT=5433   (a port set once is kept in .env for upgrades)
 #   REPO=beedev/ue-pcas-deploy  BRANCH=main      where the configuration comes from
 #   NO_DOWNLOAD=1            use the files already in PCAS_HOME (testing a local copy)
 #   NO_OPEN=1                do not open the browser at the end (Mac)
@@ -26,11 +26,14 @@ URL="${URL%/}"
 HOME_DIR="${PCAS_HOME:-$HOME/ue-pcas}"
 REPO="${REPO:-beedev/ue-pcas-deploy}"
 BRANCH="${BRANCH:-main}"
-PCAS_PORT="${PCAS_PORT:-8080}"
-KEYCLOAK_PORT="${KEYCLOAK_PORT:-8180}"
-API_PORT="${API_PORT:-8000}"
-MOCKS_PORT="${MOCKS_PORT:-8090}"
-DB_PORT="${DB_PORT:-5433}"
+# A port given on the command line wins; otherwise the one an earlier install wrote to .env is kept, so an upgrade never moves a
+# stack onto ports that another program on the server holds; only a first install takes the default.
+kept() { grep -E "^$1=" "$HOME_DIR/.env" 2>/dev/null | tail -1 | cut -d= -f2- || true; }
+PCAS_PORT="${PCAS_PORT:-$(kept PCAS_PORT)}"; PCAS_PORT="${PCAS_PORT:-8080}"
+KEYCLOAK_PORT="${KEYCLOAK_PORT:-$(kept KEYCLOAK_PORT)}"; KEYCLOAK_PORT="${KEYCLOAK_PORT:-8180}"
+API_PORT="${API_PORT:-$(kept API_PORT)}"; API_PORT="${API_PORT:-8000}"
+MOCKS_PORT="${MOCKS_PORT:-$(kept MOCKS_PORT)}"; MOCKS_PORT="${MOCKS_PORT:-8090}"
+DB_PORT="${DB_PORT:-$(kept DB_PORT)}"; DB_PORT="${DB_PORT:-5433}"
 
 if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then B=$'\033[1m'; G=$'\033[32m'; R=$'\033[31m'; Y=$'\033[33m'; N=$'\033[0m'; else B=''; G=''; R=''; Y=''; N=''; fi
 step() { printf '\n%s[%s]%s %s\n' "$B" "$1" "$N" "$2"; }
